@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 갤러리</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
+    #image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery-image {
+      width:70%;
+    }
+
+    .description{
+        text-align: center;
+        font-size:4vw;
+        font-family: 'Teko', sans-serif;
+    }
+
+  </style>
+</head>
+<body>
+ <div class="description">
+    <br>
+    1. How to draw an image with machine learning?
+    <br>
+    2. What is an image for the computer?
+    <br>l<br>
+    l<br>l<br>l<br>
+     
+    3. How to show an image on the computer?
+    <br><br><br><br><br>
+ </div>
+
+  <div id="image-gallery"></div>
+
+  <script>
+    // 이미지를 로드하고 표시하는 함수
+    function loadImage(src, index) {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `Image ${index + 1}`;
+      img.classList.add('gallery-image');
+      document.getElementById('image-gallery').appendChild(img);
+    }
+
+    // 이미지를 순회하며 로드 및 표시
+    for (let i = 1; i <= 22; i++) {
+      const imageUrl = `./image/a-${String(i).padStart(2, '0')}.jpg`;
+      loadImage(imageUrl, i - 1);
+    }
+  </script>
+</body>
+</html>
